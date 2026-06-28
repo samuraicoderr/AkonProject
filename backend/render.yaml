@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: akonproject-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: PORT
+        value: "8000"
+    healthCheckPath: /api/ping

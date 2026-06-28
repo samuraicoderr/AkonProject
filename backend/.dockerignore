@@ -1,0 +1,70 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments (root level only)
+/env/
+/venv/
+/.venv/
+/ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation
+*.md
+!README.md
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Render
+render.yaml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs (root level only)
+/logs/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Vercel
+.vercel
+vercel.json
+
+# Lib subfolders to exclude (but keep src/)
+src/lib/akonproject_training_ground/env/
+src/lib/akonproject_training_ground/logs/
+src/lib/akonproject_training_ground/data/

@@ -1,0 +1,16 @@
+# 3.13.1
+# Core Framework
+django>=4.2,<5.0
+django-ninja>=1.0
+
+# CORS Support (for public API)
+django-cors-headers>=4.0
+
+# ASGI Server
+uvicorn==0.40.0
+
+# ML Dependencies
+pandas>=2.0
+scikit-learn>=1.0
+joblib>=1.0
+numpy>=1.24
