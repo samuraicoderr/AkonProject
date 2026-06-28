@@ -89,7 +89,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbf9f8] grain relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#fbf9f8]">
       <Toaster
         position="top-center"
         toastOptions={{
