@@ -1,0 +1,5 @@
+# py 3.13 / 3.8 (not sure at this point)
+
+pandas==3.0.0
+scikit_learn==1.8.0
+joblib==
