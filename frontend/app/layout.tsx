@@ -8,9 +8,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AkonProject - AI Crop Recommendation",
-  description: "Instantly determine which crop to plant based on soil and climate data. Powered by machine learning with 99.77% accuracy.",
-  keywords: ["crop recommendation", "farming", "agriculture", "AI", "machine learning", "soil analysis"],
+  title: "AkonProject — AI Crop Intelligence",
+  description:
+    "Discover the ideal crop for your soil and climate. Powered by machine learning with 99.77% accuracy.",
+  keywords: [
+    "crop recommendation",
+    "farming",
+    "agriculture",
+    "AI",
+    "machine learning",
+    "soil analysis",
+  ],
 };
 
 export default function RootLayout({

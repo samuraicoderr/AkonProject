@@ -1,10 +1,16 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY,
-  baseURL: process.env.OPEN_API_BASE_URL,
-});
+function getClient() {
+  const apiKey = process.env.GROQ_API_KEY;
+  const baseURL = process.env.OPEN_API_BASE_URL;
+
+  if (!apiKey) {
+    throw new Error("Missing GROQ_API_KEY environment variable");
+  }
+
+  return new OpenAI({ apiKey, baseURL });
+}
 
 export async function POST(request: Request) {
   try {
@@ -40,6 +46,7 @@ Top alternatives: ${recommendation.top_recommendations
 
 Provide detailed farming insights for the recommended crop (${recommendation.recommended_crop}). Respond ONLY with the JSON object, no other text.`;
 
+    const client = getClient();
     const completion = await client.chat.completions.create({
       model: "llama-3.3-70b-versatile",
       messages: [

@@ -1,14 +1,20 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY,
-  baseURL: process.env.OPEN_API_BASE_URL,
-});
+function getClient() {
+  const apiKey = process.env.GROQ_API_KEY;
+  const baseURL = process.env.OPEN_API_BASE_URL;
+
+  if (!apiKey) {
+    throw new Error("Missing GROQ_API_KEY environment variable");
+  }
+
+  return new OpenAI({ apiKey, baseURL });
+}
 
 export async function POST(request: Request) {
   try {
-    const { messages, context, stream } = await request.json();
+    const { messages, context } = await request.json();
 
     let systemContent = `You are AkonProject AI, a friendly and knowledgeable agricultural assistant. You help farmers make informed decisions about their crops.
 
@@ -37,6 +43,7 @@ Be concise, practical, and encouraging. Use simple language that farmers can eas
       systemContent += `\n\nML model recommendation: ${context.recommendation.recommended_crop} (${(context.recommendation.confidence * 100).toFixed(1)}% confidence)`;
     }
 
+    const client = getClient();
     const completion = await client.chat.completions.create({
       model: "llama-3.3-70b-versatile",
       messages: [

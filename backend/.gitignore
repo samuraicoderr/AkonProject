@@ -46,9 +46,8 @@ static/
 media/
 
 # Secret key
-.env
-.env.local
-.env.*.local
+.env*
+!.env.example
 
 # IDE
 .idea/
